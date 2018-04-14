@@ -1,0 +1,2 @@
+Class-Path: lib
+Main-Class: src/org/hasselman/sensors/temperature/TemperatureSensor.java

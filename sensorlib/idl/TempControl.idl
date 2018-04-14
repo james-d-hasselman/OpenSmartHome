@@ -1,0 +1,27 @@
+// TempControl.idl
+module org {
+    module hasselman {
+        module dds {
+            module sensors {
+                module temperature {
+
+                    enum TemperatureScale {
+                        CELSIUS,
+                        FAHRENHEIT,
+                        KELVIN
+                    };
+
+                    struct TemperatureSensorType {
+                        short id;
+                        float temperature;
+                        float humidity;
+                        TemperatureScale scale;
+                    };
+
+                    #pragma keylist TemperatureSensorType id
+                };
+            };
+        };
+    };
+};
+
