@@ -20,6 +20,29 @@ module org {
 
                     #pragma keylist TemperatureSensorType id
                 };
+
+                module contact {
+                    enum Status {
+                        OK,
+                        MAINTENANCE_REQUIRED
+                    };
+
+                    enum Type {
+                        DOOR,
+                        WINDOW
+                    };
+
+                    struct ContactSensorType {
+                        string id;
+                        Type type;
+                        boolean isOpen;
+                        Status status;
+                        short batteryPercentage;
+                    };
+
+                    #pragma keylist ContactSensorType id
+                };
+
             };
         };
     };
