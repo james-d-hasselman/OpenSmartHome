@@ -39,3 +39,4 @@ Thumbs.db
 # Build paths #
 ######################
 target
+sensorlib/src
