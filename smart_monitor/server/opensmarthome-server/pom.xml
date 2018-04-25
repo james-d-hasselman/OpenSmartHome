@@ -10,6 +10,32 @@
   <description>
     Central monitoring station for smart home sensors.
   </description>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.websocket</groupId>
+        <artifactId>javax.websocket-api</artifactId>
+        <version>1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>2.9.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.9.1</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -18,10 +44,90 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId></groupId>
-      <artifactId></artifactId>
-      <version></version>
-      <scope></scope>
+      <groupId>org.opensplice.dds</groupId>
+      <artifactId>dcpssaj5</artifactId>
+      <version>6.7.17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hasselman.dds.sensors</groupId>
+      <artifactId>sensorlib</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.websocket</groupId>
+      <artifactId>javax.websocket-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.1</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <finalName>opensmarthome-server</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.cargo</groupId>
+          <artifactId>cargo-maven2-plugin</artifactId>
+          <version>1.6.4</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <configuration>
+          <container>
+            <containerId>tomcat8x</containerId>
+            <artifactInstaller>
+              <groupId>org.apache.tomcat</groupId>
+              <artifactId>tomcat</artifactId>
+              <version>8.5.23</version>
+            </artifactInstaller>
+          </container>
+          <configuration>
+            <type>standalone</type>
+            <home>
+              ${project.build.directory}/apache-tomcat-8.5.23
+            </home>
+            <properties>
+              <cargo.servlet.port>8080</cargo.servlet.port>
+              <cargo.logging>high</cargo.logging>
+            </properties>
+          </configuration>
+          <deployables>
+            <deployable>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>${project.artifactId}</artifactId>
+              <type>war</type>
+              <properties>
+                <context>/monitoring</context>
+              </properties>
+            </deployable>
+          </deployables>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
