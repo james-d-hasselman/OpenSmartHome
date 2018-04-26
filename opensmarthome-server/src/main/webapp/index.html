@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OpenSmartHome - Monitor</title>
+    <script src="resources/js/app.js"></script>
+  </head>
+  <body onload="init();">
+    <object id="floorplan" data="resources/images/floorplan.svg" type="image/svg+xml">
+    </object>
+
+    <!-- display the clicked sensor's data -->
+    <h3>Selected Sensor</h3>
+    <p><span>ID: </span><span id="sensorId"></span></p>
+    <p><span>Type: </span><span id="sensorType"></span></p>
+    <p><span>Open: </span><span id="sensorOpen"></span></p>
+    <p><span>Status: </span><span id="sensorStatus"></span></p>
+    <p><span>Battery: </span><span id="sensorBatteryPercentage"></span></p>
+  </body>
+</html>
