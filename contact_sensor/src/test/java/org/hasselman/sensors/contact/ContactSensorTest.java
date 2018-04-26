@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class ContactSensorTest {
 
-    @Test
+    /*@Test
     public void testIndividualContactSensor() {
         System.out.println("Running test...");
         System.setProperty(ServiceEnvironment.IMPLEMENTATION_CLASS_NAME_PROPERTY, "org.opensplice.dds.core.OsplServiceEnvironment");
@@ -31,9 +31,9 @@ public class ContactSensorTest {
         } catch (InterruptedException e) {
             System.err.println(e);
         }
-    }
+    }*/
 
-/*    @Test
+    @Test
     public void testContactSensors() {
         System.out.println("Running test...");
         System.setProperty(ServiceEnvironment.IMPLEMENTATION_CLASS_NAME_PROPERTY, "org.opensplice.dds.core.OsplServiceEnvironment");
@@ -82,5 +82,5 @@ public class ContactSensorTest {
         } catch (InterruptedException e) {
             System.err.println(e);
         }
-    }*/
+    }
 }

@@ -32,6 +32,7 @@ public class ContactSensorMock implements Runnable {
     private int secondsElapsed;
     private boolean offline;
     private Random coinFlipper;
+    private InstanceHandle handle;
 
     public  ContactSensorMock(String id, Type sensorType, ServiceEnvironment serviceEnvironment){
         this.serviceEnvironment = serviceEnvironment;
@@ -40,8 +41,13 @@ public class ContactSensorMock implements Runnable {
         publisher = domainParticipant.createPublisher();
         contactSensorTopic = domainParticipant.createTopic("ContactSensors", ContactSensorType.class);
         contactDataWriter = publisher.createDataWriter(contactSensorTopic);
-
         sensorData = new ContactSensorType(id, sensorType, false, Status.OK, (short)100);
+        try {
+            handle = contactDataWriter.registerInstance(sensorData);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
         secondsElapsed = 0;
         offline = false;
         coinFlipper = new Random();
@@ -71,9 +77,10 @@ public class ContactSensorMock implements Runnable {
                 // maintenance maintenance needed, five seconds elapsed
                 else if(sensorData.status == Status.MAINTENANCE_REQUIRED && secondsElapsed >= 5) {
                     // unpublish the topic (make is look offline)
-                    InstanceHandle handle = contactDataWriter.lookupInstance(sensorData);
                     try {
-                        contactDataWriter.dispose(handle);
+                        contactDataWriter.unregisterInstance(handle);
+                        //contactDataWriter.dispose(handle);
+                        //contactDataWriter = null;
                     } catch (TimeoutException ex) {
                         System.err.println(ex);
                     }
@@ -94,11 +101,22 @@ public class ContactSensorMock implements Runnable {
             } else { 
                 // offline, five seconds elapsed
                 if(secondsElapsed >= 5) {
+                    try {
+                        Thread.sleep(10000);
+                    } catch(InterruptedException e) {
+                        e.printStackTrace();
+                        Thread.currentThread().interrupt();
+                    }
                     contactDataWriter = publisher.createDataWriter(contactSensorTopic);
                     // set battery to 100%
                     sensorData.batteryPercentage = 100;
                     // set status to OK
                     sensorData.status = Status.OK;
+                    try {
+                        handle = contactDataWriter.registerInstance(sensorData);
+                    } catch(TimeoutException e) {
+                        e.printStackTrace();
+                    }
                     offline = false;
                     secondsElapsed = 0;
                 }
