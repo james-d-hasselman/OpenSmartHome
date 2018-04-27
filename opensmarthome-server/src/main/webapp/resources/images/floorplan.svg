@@ -191,22 +191,22 @@ YRkmW5CjUGj7wuUzNQCAGSZnakF+VTWRQnqVFXTW1j3Y2P4Kab00GTWLLGxYQFCx/QXH/wEtiqle
      id="image3384"
      x="2.5"
      y="2.5" />
-  <rect id="kitchen-window" x="57" y="3" width="47" height="6" stroke="black" fill="gray" stroke-width="1" />
-  <rect id="master-bedroom-window-1" x="288" y="3" width="47" height="6" stroke="black" fill="gray" stroke-width="1" />
-  <rect id="master-bedroom-window-2" x="406.5" y="46" width="6" height="82" stroke="black" fill="gray" stroke-width="1" />
-  <rect id="second-bedroom-window-1" x="406.5" y="300" width="6" height="37" stroke="black" fill="gray" stroke-width="1" />
-  <rect id="second-bedroom-window-2" x="311" y="446" width="46" height="6" stroke="black" fill="gray" stroke-width="1" />
- <rect id="living-room-window" x="101" y="446" width="101" height="6" stroke="black" fill="gray" stroke-width="1" />
+  <rect id="kitchen-window" x="57" y="3" width="47" height="6" stroke="black" fill="silver" stroke-width="1" />
+  <rect id="master-bedroom-window-1" x="288" y="3" width="47" height="6" stroke="black" fill="silver" stroke-width="1" />
+  <rect id="master-bedroom-window-2" x="406.5" y="46" width="6" height="82" stroke="black" fill="silver" stroke-width="1" />
+  <rect id="second-bedroom-window-1" x="406.5" y="300" width="6" height="37" stroke="black" fill="silver" stroke-width="1" />
+  <rect id="second-bedroom-window-2" x="311" y="446" width="46" height="6" stroke="black" fill="silver" stroke-width="1" />
+ <rect id="living-room-window" x="101" y="446" width="101" height="6" stroke="black" fill="silver" stroke-width="1" />
   <path id="front-door" d="M53,438 h+36 a36,36 0 0,0 -36,-37 z"
-        fill="gray" stroke="black" stroke-width="1" />
-  <path id="bathroom-door" d="M298.5,176 h+30 a-30,30 0 0,1 -30,30 z" stroke="black" fill="gray" stroke-width="1" />
-  <path id="utility-room-door" d="M246.5,170 h-30 a-30,30 0 0,0 30,30 z" stroke="black" fill="gray" stroke-width="1"/>
-  <path id="master-bedroom-door" d="M246.5,165 v-47 a47,-47, 0 0,1 47,47 z" stroke="black" fill="gray" stroke-width="1"/>
-  <path id="master-bedroom-closet-door-1" d="M194,138 h+28 a28,28 0 0,0 -28,-28 z" stroke="black" fill="gray" stroke-width="1"/>
-  <path id="master-bedroom-closet-door-2" d="M194,33 h+28 a28,28 0 0,1 -28,24 z" stroke="black" fill="gray" stroke-width="1"/>
-  <path id="coat-closet-door" d="M152.5,180 h-30 a-30,30 0 0,0 30,30 z" stroke="black" fill="gray" stroke-width="1"/>
-  <path id="supply-closet-door" d="M23,234 v-26 a26,26 0 0,1 26,26 z" stroke="black" fill="gray" stroke-width="1"/>
-  <path id="linen-closet-door" d="M298.5,244 h-34 a34,34 0 0,0 34,34 z" stroke="black" fill="gray" stroke-width="1" />
-  <path id="second-bedroom-door" d="M259,279 v+36 a36,36 0 0,0 36,-36 z" stroke="black" fill="gray" stroke-width="1" />
-  <path id="second-bedroom-closet-door" d="M380,279 v+27 a27,27 0 0,1 -27,-27 z" stroke="black" fill="gray" stroke-width="1" />
+        fill="silver" stroke="black" stroke-width="1" />
+  <path id="bathroom-door" d="M298.5,176 h+30 a-30,30 0 0,1 -30,30 z" stroke="black" fill="silver" stroke-width="1" />
+  <path id="utility-room-door" d="M246.5,170 h-30 a-30,30 0 0,0 30,30 z" stroke="black" fill="silver" stroke-width="1"/>
+  <path id="master-bedroom-door" d="M246.5,165 v-47 a47,-47, 0 0,1 47,47 z" stroke="black" fill="silver" stroke-width="1"/>
+  <path id="master-bedroom-closet-door-1" d="M194,138 h+28 a28,28 0 0,0 -28,-28 z" stroke="black" fill="silver" stroke-width="1"/>
+  <path id="master-bedroom-closet-door-2" d="M194,33 h+28 a28,28 0 0,1 -28,24 z" stroke="black" fill="silver" stroke-width="1"/>
+  <path id="coat-closet-door" d="M152.5,180 h-30 a-30,30 0 0,0 30,30 z" stroke="black" fill="silver" stroke-width="1"/>
+  <path id="supply-closet-door" d="M23,234 v-26 a26,26 0 0,1 26,26 z" stroke="black" fill="silver" stroke-width="1"/>
+  <path id="linen-closet-door" d="M298.5,244 h-34 a34,34 0 0,0 34,34 z" stroke="black" fill="silver" stroke-width="1" />
+  <path id="second-bedroom-door" d="M259,279 v+36 a36,36 0 0,0 36,-36 z" stroke="black" fill="silver" stroke-width="1" />
+  <path id="second-bedroom-closet-door" d="M380,279 v+27 a27,27 0 0,1 -27,-27 z" stroke="black" fill="silver" stroke-width="1" />
 </svg>

@@ -3,6 +3,11 @@ var floorplan = null;
 var sensors = [];
 OK = 0;
 MAINTENANCE = 1;
+CLOSED_COLOR = "green";
+OPEN_COLOR = "red";
+OFFLINE_COLOR = "silver";
+HOVER_COLOR = "yellow";
+DEFAULT_STROKE_COLOR = "black";
 
 function init() {
     if ("WebSocket" in window) {
@@ -17,11 +22,11 @@ function init() {
             };
 
             aWindow.onmouseover = function() {
-                this.setAttribute("stroke", "yellow");
+                this.setAttribute("stroke", HOVER_COLOR);
             };
 
             aWindow.onmouseout = function() {
-                this.setAttribute("stroke", "black");
+                this.setAttribute("stroke", DEFAULT_STROKE_COLOR);
             };
         }
 
@@ -33,11 +38,11 @@ function init() {
             };
 
             aDoor.onmouseover = function() {
-                this.setAttribute("stroke", "yellow");
+                this.setAttribute("stroke", HOVER_COLOR);
             };
 
             aDoor.onmouseout = function() {
-                this.setAttribute("stroke", "black");
+                this.setAttribute("stroke", DEFAULT_STROKE_COLOR);
             };
         }
 
@@ -56,17 +61,17 @@ function init() {
             var sensorDisplay = floorplan.getElementById(sensor.id);
             if(sensor.batteryPercentage >= 0) {
                 if(sensor.isOpen && sensor.status == OK) {
-                    sensorDisplay.setAttribute("fill", "red");
+                    sensorDisplay.setAttribute("fill", OPEN_COLOR);
                 } else if(sensor.isOpen && sensor.status == MAINTENANCE){
                     sensorDisplay.setAttribute("fill", "url(./patterns.svg#open-maintenance)");
                 } else if(!sensor.isOpen && sensor.status == OK) {
-                    sensorDisplay.setAttribute("fill", "lime");
+                    sensorDisplay.setAttribute("fill", CLOSED_COLOR);
                 } else {
                     // sensor is closed and needs maintenance
                     sensorDisplay.setAttribute("fill", "url(./patterns.svg#closed-maintenance)");
                 }
             } else {
-                sensorDisplay.setAttribute("fill", "gray");
+                sensorDisplay.setAttribute("fill", OFFLINE_COLOR);
             }
         };
 
@@ -88,7 +93,7 @@ function init() {
 function cleanUp() {
     for(var id in sensors) {
         sensorDisplay = floorplan.getElementById(id);
-        sensorDisplay.setAttribute("fill", "gray");
+        sensorDisplay.setAttribute("fill", OFFLINE_COLOR);
         sensorDisplay.onclick = "";
         sensorDisplay.onmouseover = "";
         sensorDisplay.onmouseout = "";
