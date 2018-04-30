@@ -21,12 +21,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.opensplice.dds</groupId>
-      <artifactId>dcpssaj</artifactId>
-      <version>6.7.17</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.hasselman.dds.sensors</groupId>
       <artifactId>sensorlib</artifactId>
       <version>0.0.1-SNAPSHOT</version>
